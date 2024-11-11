@@ -8,7 +8,6 @@ const AuthProvider = ({ children }) => {
   const navigate = useNavigate();
 
   const login = (username, password) => {
-    // Retrieve credentials from localStorage
     const storedCredentials = JSON.parse(
       localStorage.getItem("userCredentials")
     );
@@ -19,10 +18,14 @@ const AuthProvider = ({ children }) => {
       storedCredentials.password === password
     ) {
       setIsAuthenticated(true);
-      navigate("/");
+      navigate("/"); // Redirect to home page on successful login
+      return true; // Indicate successful login
     } else {
       alert("Invalid credentials. Redirecting to the registration page.");
-      navigate("/register"); // Redirect to registration if credentials are invalid
+      setTimeout(() => {
+        navigate("/register"); // Redirect to registration page if credentials are invalid
+      }, 100);
+      return false; // Indicate failed login
     }
   };
 

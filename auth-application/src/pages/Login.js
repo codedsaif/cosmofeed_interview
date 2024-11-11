@@ -12,11 +12,15 @@ const Login = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    login(username, password);
 
-    // If there’s a redirect path saved in location.state
-    const redirectPath = location.state?.from?.pathname || "/";
-    navigate(redirectPath);
+    // Call login and check if it was successful
+    const isLoggedIn = login(username, password);
+
+    // If login is successful, navigate to the previously stored path or the home page
+    if (isLoggedIn) {
+      const redirectPath = location.state?.from?.pathname || "/";
+      navigate(redirectPath);
+    }
   };
 
   return (
