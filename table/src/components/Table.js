@@ -22,7 +22,7 @@ const Table = () => {
           </tr>
         </thead>
         <tbody className={styles.tbody}>
-          <tr className={styles.tr}>
+          {/* <tr className={styles.tr}>
             {tableHeaderItems.map((item, index) => {
               return (
                 <>
@@ -45,7 +45,21 @@ const Table = () => {
                 </>
               );
             })}
-          </tr>
+          </tr> */}
+          {Array(10)
+            .fill(null)
+            .map((_, rowIndex) => (
+              <tr className={styles.tr} key={rowIndex}>
+                {tableHeaderItems.map((item, index) => (
+                  <>
+                    <td className={styles.phoneTdBefore}>{item}</td>
+                    <td className={styles.td} key={index}>
+                      {item}
+                    </td>
+                  </>
+                ))}
+              </tr>
+            ))}
         </tbody>
       </table>
     </div>
