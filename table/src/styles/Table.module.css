@@ -1,0 +1,71 @@
+.wrapper {
+  padding: 20px;
+  display: flex;
+  width: 100%;
+  height: 100%;
+}
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  border-radius: 16px;
+  overflow: hidden;
+}
+.thead {
+  /* background-color: #f2f2f2; */
+  background: #0000ff;
+  color: white;
+}
+/* .thead .tr,
+.tbody .tr {
+} */
+.thead .td,
+.tbody .td {
+  padding: 10px 20px;
+  text-align: center;
+}
+.tbody .tr:nth-child(even) {
+  background-color: #00808012;
+}
+
+.tbody .tr:hover {
+  background-color: #0000ff0d;
+}
+
+.phoneTdBefore {
+  padding: 10px 20px;
+  display: none;
+  position: relative;
+}
+
+@media screen and (max-width: 768px) {
+  .phoneTdBefore {
+    display: block;
+  }
+  .phoneTdBefore:after {
+    content: ":";
+    position: absolute;
+    right: 0;
+  }
+  .thead .tr {
+    display: none;
+  }
+  .tbody {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  .tbody .tr {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .tbody .tr {
+    padding: 10px 20px;
+    text-align: left;
+    border-radius: 16px;
+    border: 1px solid #ccc;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+  }
+  .tbody .td {
+    text-align: left;
+  }
+}
